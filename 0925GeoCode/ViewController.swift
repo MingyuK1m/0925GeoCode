@@ -16,8 +16,6 @@ class ViewController: UIViewController, MKMapViewDelegate {
     //가변 배열
     var Subts = NSMutableArray()
     
-    var viewSubTitle = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -146,6 +144,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
             let viewTitle: String = ((viewAnno?.title)!)!
             //let viewSubTitle: String = ((viewAnno?.subtitle)!)!
             //let viewSubTitle: String = Subts[0] as! String
+            
+            var viewSubTitle = ""
             
             if (viewAnno?.title)! == "시민공원"{
                 viewSubTitle = Subts[2] as! String
