@@ -13,7 +13,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var maps: MKMapView!
     
-    var Subts = [String]()
+    //var Subts = [String]()
+    var Subts = ["1","2","3"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,12 +42,12 @@ class ViewController: UIViewController, MKMapViewDelegate {
                 let title = (item as AnyObject).value(forKey: "Title")
                 let subT = (item as AnyObject).value(forKey: "SubTitle")
                 
-                //Subts[(item as AnyObject).value(forKey: "count") as! Int] = subT as! String
+                Subts[(item as AnyObject).value(forKey: "count") as! Int] = subT as! String
                 
                 
                 print("서브타이틀 = \(String(describing: subT))")
                 print("카운터 = ", (item as AnyObject).value(forKey: "count") as Any)
-                print("레벨 = ", Subts)
+                print("레벨 = ", Subts[(item as AnyObject).value(forKey: "count") as! Int])
 
                 
                 let geoCoder = CLGeocoder()
