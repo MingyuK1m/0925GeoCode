@@ -13,8 +13,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var maps: MKMapView!
     
-    //var Subts = [String]()
-    var Subts = ["1","2","3"]
+    //가변 배열
+    var Subts = NSMutableArray()
+    
+    var viewSubTitle = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +46,6 @@ class ViewController: UIViewController, MKMapViewDelegate {
                 
                 Subts[(item as AnyObject).value(forKey: "count") as! Int] = subT as! String
                 
-                
                 print("서브타이틀 = \(String(describing: subT))")
                 print("카운터 = ", (item as AnyObject).value(forKey: "count") as Any)
                 print("레벨 = ", Subts[(item as AnyObject).value(forKey: "count") as! Int])
@@ -67,9 +68,6 @@ class ViewController: UIViewController, MKMapViewDelegate {
                         let annotation = MKPointAnnotation()
                         annotation.title = title as? String
                         annotation.subtitle = address as? String
-                        
-                        
-                     
                         
                         if let myLocation = myPlacemark.location {
                             annotation.coordinate = myLocation.coordinate
@@ -146,7 +144,16 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
             let viewAnno = view.annotation
             let viewTitle: String = ((viewAnno?.title)!)!
-            let viewSubTitle: String = ((viewAnno?.subtitle)!)!
+            //let viewSubTitle: String = ((viewAnno?.subtitle)!)!
+            //let viewSubTitle: String = Subts[0] as! String
+            
+            if (viewAnno?.title)! == "시민공원"{
+                viewSubTitle = Subts[2] as! String
+            } else if (viewAnno?.title)! == "동의과학대"{
+                viewSubTitle = Subts[0] as! String
+            } else {
+                viewSubTitle = Subts[1] as! String
+            }
             
             print("\(viewTitle) \(viewSubTitle)")
             
