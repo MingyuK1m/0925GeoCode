@@ -9,14 +9,18 @@
 		<string>부산광역시 부산진구 양정1동 양지로 54</string>
 		<key>SubTitle</key>
 		<string>대학교당</string>
+		<key>count</key>
+		<integer>0</integer>
 	</dict>
 	<dict>
 		<key>Title</key>
 		<string>송상현광장</string>
 		<key>Address</key>
-		<string>부산광역시 부산진구 전포2동 중앙대로 지하 818</string>
+		<string>부산광역시 부산진구 범전동 429</string>
 		<key>SubTitle</key>
 		<string>광장이당</string>
+		<key>count</key>
+		<integer>1</integer>
 	</dict>
 	<dict>
 		<key>Title</key>
@@ -25,6 +29,8 @@
 		<string>부산광역시 부산진구 범천동 시민공원로 73</string>
 		<key>SubTitle</key>
 		<string>시민공원이당</string>
+		<key>count</key>
+		<integer>2</integer>
 	</dict>
 </array>
 </plist>

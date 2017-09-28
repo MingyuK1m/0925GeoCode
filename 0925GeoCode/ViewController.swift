@@ -13,8 +13,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var maps: MKMapView!
     
+    var Subts = [String]()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -41,6 +41,14 @@ class ViewController: UIViewController, MKMapViewDelegate {
                 let title = (item as AnyObject).value(forKey: "Title")
                 let subT = (item as AnyObject).value(forKey: "SubTitle")
                 
+                //Subts[(item as AnyObject).value(forKey: "count") as! Int] = subT as! String
+                
+                
+                print("서브타이틀 = \(String(describing: subT))")
+                print("카운터 = ", (item as AnyObject).value(forKey: "count") as Any)
+                print("레벨 = ", Subts)
+
+                
                 let geoCoder = CLGeocoder()
                 
                 geoCoder.geocodeAddressString(address as! String, completionHandler: { placemarks, error in
@@ -58,6 +66,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
                         let annotation = MKPointAnnotation()
                         annotation.title = title as? String
                         annotation.subtitle = address as? String
+                        
+                        
+                     
                         
                         if let myLocation = myPlacemark.location {
                             annotation.coordinate = myLocation.coordinate
@@ -138,7 +149,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
             
             print("\(viewTitle) \(viewSubTitle)")
             
-            let ac = UIAlertController(title: viewTitle, message: viewSubTitle, preferredStyle: .alert)
+            let ac = UIAlertController(title: viewTitle, message: viewSubTitle, preferredStyle: .actionSheet)
             ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(ac, animated: true, completion: nil)
         }
